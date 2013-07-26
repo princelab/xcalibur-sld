@@ -6,10 +6,10 @@ require 'xcalibur/sld/version'
 Gem::Specification.new do |spec|
   spec.name          = "xcalibur-sld"
   spec.version       = Xcalibur::Sld::VERSION
-  spec.authors       = ["John Prince"]
+  spec.authors       = ["Ryan M. Taylor, John T. Prince"]
   spec.email         = ["jtprince@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{gem for parsing the Xcalibur Thermo SLD file, a file used to specify the sequence of mass spectrometry runs}
+  spec.summary       = %q{gem for parsing the Xcalibur Thermo SLD file}
   spec.homepage      = ""
   spec.license       = "MIT"
 

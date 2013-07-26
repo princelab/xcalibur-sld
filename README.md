@@ -1,29 +1,29 @@
 # Xcalibur::Sld
 
-TODO: Write a gem description
+Cross-platform access to the Thermo's sequence SLD files.
+
+NOTE: Each raw file [embeds the information from the sequence
+row](https://code.google.com/p/unfinnigan/wiki/SeqRow) where it was injected.
+This can be easily accessed with the
+[unfinnigan](https://code.google.com/p/unfinnigan/) uf-seqrow commandline tool
+(which is cross-platform).
 
 ## Installation
 
-Add this line to your application's Gemfile:
+    gem install xcalibur-sld
 
-    gem 'xcalibur-sld'
+## Examples
 
-And then execute:
+(Commandline access coming soon)
 
-    $ bundle
+    require 'xcalibur/sld'
+    sld = Xcalibur::Sld.new("file.sld")
+    header = sld.header
+    sld.rows.each do |row|
+      p row.methodname
+    end
 
-Or install it yourself as:
+## Acknowledgements
 
-    $ gem install xcalibur-sld
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+This project relied heavily on the information found on the wiki of Gene
+Selkov's awesome [unfinnigan project](https://code.google.com/p/unfinnigan/).
