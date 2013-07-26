@@ -2,12 +2,15 @@ require 'spec_helper'
 
 require 'xcalibur/sld'
 
-Test_sld = { v2_0: TESTFILES + '/SWG_serum_100511165501.sld', v2_1: TESTFILES + '/_110131184745.sld'}
-Test_meth = { v2_0: 'C:\\Xcalibur\\methods\\SWG_serum_sample.meth', v2_1: 'C:\\Xcalibur\\methods\\test1_1_etd.meth'}
+#Test_meth = { v2_0: 'C:\\Xcalibur\\methods\\SWG_serum_sample.meth', v2_1: 'C:\\Xcalibur\\methods\\test1_1_etd.meth'}
 
 describe 'Parses SLD files' do
+  before(:all) do
+    @test_sld = { v2_0: TESTFILES + '/SWG_serum_100511165501.sld', v2_1: TESTFILES + '/_110131184745.sld'}
+
+  end
   it 'parses v2.1 w/postprocessing files' do
-    sld_file = Test_sld[:v2_1]
+    sld_file = @test_sld[:v2_1]
     sld = Xcalibur::Sld.new(sld_file)
     sld.parse
     match = sld.sldrows.first.methodfile
@@ -17,7 +20,7 @@ describe 'Parses SLD files' do
     #sldfile="/home/jtprince/dev/xcalibur-sld/spec/testfiles/_110131184745.sld", methodfile="C:\\Xcalibur\\methods\\test1_1_etd.meth", rawfile="D:\\Data\\HEK_cells\\HEK_phos_enrichment2_110131184757.RAW", sequence_vial="2A05", parsed=true>
   end
   xit 'parses v2.07 files' do
-    sld_file = Test_sld[:v2_0]
+    sld_file = @test_sld[:v2_0]
     sld = Xcalibur::Sld.new(sld_file)
     sld.parse
     sld.sldrows.first.parsed.should == true
